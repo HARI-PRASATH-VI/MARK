@@ -1,0 +1,4 @@
+pyfig
+requests
+python-dotenv
+rich
