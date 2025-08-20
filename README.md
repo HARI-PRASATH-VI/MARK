@@ -1,7 +1,7 @@
-# Mark-1 🤖💻
+# Mark v1 🤖💻
 > Retro Hacker-Style Coding Assistant (Terminal UI + OpenRouter Models)
 
-Mark-1 is a **voice/code assistant** with a terminal retro look, built using:
+Mark v1 is a **voice/code assistant** with a terminal retro look, built using:
 - [Rich](https://github.com/Textualize/rich) for the hacker-style UI
 - [OpenRouter](https://openrouter.ai/) for free & open-source AI models
   - Qwen for coding
