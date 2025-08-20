@@ -9,13 +9,16 @@ class UI:
 
     def banner(self):
         self.console.print(
-            Panel("[bold green]Welcome to MARK 1 - Retro Hacker Assistant"),
-            style="bold green"
+            Panel(
+                "[bold green]Welcome to MARK 1 - Retro Hacker Assistant[/bold green]",
+                border_style="green",
+                padding=(1, 2)
+            )
         )
 
-    def hacker_print(self, text, delay=0.01, style="bold green"):
+    def hacker_print(self, text, delay=0.00, style="bold green"):
         for char in text:
-            self.console.print(char, end="", style=style, justify="left")
+            self.console.print(char, style=style, end="")
             time.sleep(delay)
         self.console.print()
 
@@ -24,9 +27,18 @@ class UI:
 
     def display_response(self, text):
         self.console.print(
-            Panel(text, title="[bold green]Mark 1[/bold green]")
+            Panel(text, title="[bold green]Mark 1[/bold green]", border_style="green"),
+            justify="middle"
         )
 
     def display_code(self, code, lang="python"):
-        syntax = Syntax(code, lang, theme="monokai", line_numbers=True)
-        self.console.print(Panel(syntax, title="[bold green]Code[/bold green]"))
+        syntax = Syntax(code, lang, theme="monokai", line_numbers=True, word_wrap=True)
+        self.console.print(
+            Panel(
+                syntax,
+                title="[bold cyan]💻 MARK 1 Code Box[/bold cyan]",
+                border_style="bright_green",
+                padding=(1, 2)
+            ),
+            justify="center"
+        )

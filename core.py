@@ -3,6 +3,7 @@
 from models.qwen import Qwen
 from models.llama import Llama
 from models.deepseek import DeepSeek
+import sys, time
 
 class Assistant:
     def __init__(self, ui):
@@ -20,7 +21,16 @@ class Assistant:
         else:
             generator = self.qwen.generate_stream(user_input)
 
-        self.ui.hacker_print(">>> Mark 1:", style="bold green")
+        # Streaming response
+        self.ui.console.print("[bold green]Mark 1:[/bold green] ", end="")
+        sys.stdout.flush()
+
+        response = ""
         for token in generator:
-            self.ui.hacker_print(token, delay=0.003, style="green")
-        return ""
+            response += token
+            # print inline without line breaks
+            print(token, end="", flush=True)
+              # small delay for typing effect
+
+        print()  # final newline after response
+        return response
